@@ -1,0 +1,853 @@
+:root{
+    --primary:white;
+    --containers:#ffffff65;
+    --text:black;
+}
+
+
+.hidden {
+    display: none;
+    background: none;
+}
+.underline {
+    text-decoration: underline;
+}
+.horisontal_float{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+hr{
+    border: 1px solid var(--containers);
+    border-radius: 10px;
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    max-height: 100%;
+}
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;    
+    font-family: Arial, sans-serif;
+    background-image: url("Images/Background_light.jpeg");
+    background-attachment: fixed;
+    transition: background-image 0.7s ease;
+}
+.container {
+    width: 90%;
+    margin: 1% auto;
+    padding: 5px;
+    background-color: #cccccc7a;
+    border-radius: 1vw;
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.1);
+    transition: filter 0.7s ease;
+    max-width: 800px;
+}
+input[type='number']::-webkit-inner-spin-button {
+    position: absolute;
+    width: 5%;
+    height: 70%;
+    right: 0;
+  }  
+header{
+    text-align: center;
+    line-height: 150%;
+    font-weight: bold;
+    font-size: clamp(1px, 4vw, 40px);
+
+}
+select{
+    font-size: clamp(1px, 1.5vw, 15px);
+}
+label {
+    font-weight: bold;
+    font-size: clamp(1px, 2vw, 20px);
+}
+.center-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    padding-bottom: 5%;
+    padding-right:0;
+    padding-left: 0;
+}
+
+/*Night / Light button*/
+#filterImage{
+    width: 4vw;
+    height: auto;
+    position: fixed;
+    top:0.2vw;
+    right:0.2vw;
+}
+
+/* Lvl */
+.ch_lvl{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw; 
+    max-width: 100px;
+    max-height: 130px;
+    height: 14vw; 
+    margin: 1vw;
+    box-sizing: border-box;
+}
+.ch_lvl img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+}
+.lvl-label{
+    font-size: clamp(1px, 2vw, 20px);
+    margin: 0;
+    padding-top: 1vw;
+}
+.lvl-input{
+    font-size: clamp(1px, 4vw, 40px);
+    font-weight: bold;
+    width:70%;
+    height: 6vw;
+    max-height: 50px;
+
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center; 
+    position: relative;
+    border:none;
+    display: block;
+    background: none;
+}
+/* Character name input */
+.ch_name {
+    display: inline-block;
+    vertical-align: top;
+    flex-grow: 1;
+}
+.ch_name label {
+    display: block;
+    font-size: clamp(1px, 2.5vw, 25px);
+  }
+.ch_name input {
+    display: block;
+    border-radius: 1vw;
+    font-size: clamp(1px, 2vw, 15px);
+    line-height: clamp(1px, 2.5vw, 25px);
+    width: 100%;
+    margin: 5px 0;
+    border: 0.3vw solid #000000;
+    background-color: #ffffffa1;
+    box-sizing: border-box;
+    text-align: left;
+    height: auto;
+    padding-left: 1vw;
+    
+}
+
+/*Choises class + race + background*/
+.choices{
+    width: 50%;
+    margin:auto;
+    padding-right: clamp(1px, 6vw, 20px);
+}
+.choices select{
+border:black 0.1vw solid;
+font-size: clamp(1px, 2vw, 12px);
+}
+.choices_stats{
+    width: 35%;
+    padding-right:clamp(1px, 2vw, 10px);
+}
+.stat-container input[type="text"],select {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 100%;
+    margin-bottom: clamp(1px, 7%, 20px);;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+    height: auto;
+    border-color: #cccccc00;
+
+}
+/*update stats button*/
+.update{
+    width: 25vw;
+    max-width: 250px;
+    height: auto;
+    margin-left: 16%;
+    background-image: url(Images/button_frame.png);
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    color: black;
+    border-radius: 1vw;
+    margin-top: 0vw;
+    margin-bottom: 1vw;
+    text-align: center;
+}
+.update button{
+    font-weight: bold;
+    font-size: clamp(1px, 2vw, 20px);
+    line-height: clamp(1px, 5vw, 40px);
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+    border: 2px solid rgba(255, 255, 255, 0); /* Add a visible border */
+    padding: 10px 20px; /* Add some padding for better clickability */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: serif;
+}
+.update button :hover{
+    background-color: rgba(0, 0, 0, 0.342); /* Slightly visible background on hover */
+    
+}
+/*Stats box input*/
+.stat-container input[type="number"] {
+    width:8.5vw;
+    max-width: 70px;
+    font-weight: bold;
+    font-size:clamp(1px, 3.2vw, 30px);;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    padding-top: 1vw;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background: none;
+    }  
+.stats_inputs{
+    display: flex;
+    align-items: center;
+    gap: 0; /* No gap between flex items */
+    justify-content: space-between; /* Optional: Adjust alignment as needed */
+    width: 100%;
+}
+.stats_inputs .stat-container label{
+    font-size: clamp(1px, 1.7vw, 14px);
+}
+.stats_inputs .stat-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw; 
+    max-width: 80px;
+    height: 12vw; 
+    max-height: 100px;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top:clamp(1px, 3vw, 25px);;
+    box-sizing: border-box;
+
+}
+.stats_inputs .stat-container img {
+    position: absolute;
+    width: 165%;
+    height: 120%;
+}
+
+
+
+/*dice rolls*/
+#rollButton{
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    font-weight: bold;
+    font-size:clamp(1px, 1.5vw, 15px);;
+    border-radius: 1vw;
+}
+#five_e-dice_roll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure dice containers wrap to the next line if needed */
+}
+.dice-container {
+    position: relative; /* Position relative for absolute positioning of sum-number */
+    text-align: center; /* Center align content */
+    margin-top: 0.2vw; /* Adjust spacing */
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    margin-bottom: clamp(1px, 2vw, 10px);
+    width: 7vw; /* Match image width */
+    max-width: 60px;
+    height: 7vw; /* Match image height */
+    max-height: 60px;
+    
+}
+.sum-number {
+    position: absolute; /* Position absolutely */
+    top: 62%; /* Move 50% down from top */
+    left: 50%; /* Move 50% right from left */
+    transform: translate(-50%, -50%); /* Center the number */
+    padding: 5px; /* Padding around the number */
+    font-size: clamp(1px, 2vw, 17px);
+    font-weight: bold; /* Make text bold */
+    border-radius: 50%; /* Make the sum-number a circle */
+}
+.dice-container img {
+    display: block;
+    width: 100%;
+}
+
+
+/*Stat sheet*/
+.stat_sheet {
+    position: relative;
+    width: 99%;
+    max-width: 785px;
+    background-color: rgba(255, 255, 255, 0.692);
+    border-radius:clamp(1px, 6vw, 40px);;
+    border: white solid 0.5vw;
+    font-family: serif;
+    margin-top: 0;
+}
+/*Top*/
+.top_sheet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 32vw;
+    max-height: 350px;
+    position: relative;
+}
+.name_banner{
+    width: 100%;
+}
+.name_banner img{
+    position: absolute;
+    width: 100%;
+    height: 12vw;
+    max-height: 140px;
+    bottom: 0; /* Adjust this value to move the banner down */
+    z-index: 1; /* Ensure the banner is below the character name */
+}
+#character_name {
+    position: absolute;
+    z-index: 3; /* Ensure the character name is above the banner */
+    bottom: -2.5vw; 
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5vw;
+    max-height: 70px;
+    font-size: clamp(1px, 3.5vw, 40px);
+    text-align: center;
+}
+.left_frame,
+.right_frame {
+    position: absolute;
+    top: -5vw; /* Ensure frames start from the top */
+    z-index: 0; /* Ensure frames are below the banner and name */
+    height: 80%; /* Adjust as needed to cover the desired area */
+    width: 30%;
+    max-height: 300px;
+    height:27vw;
+}
+.left_frame {
+    left: 0;
+}
+.right_frame {
+    right: 0;
+}
+.right_frame img{
+    transform: rotateY(180deg);
+}
+.right_frame div, .left_frame div {
+    position: relative;
+    z-index: 2; /* Ensure paragraphs are above the image */
+    top:clamp(1px, 11vw, 150px);
+    margin: 0;
+    font-size: clamp(1px, 2vw, 18px);
+    height: 2.5vw;
+    max-height: 100px;
+    font-weight: bold;
+}
+.left_frame div{
+    margin-left: clamp(1px, 8vw, 70px);
+    text-align: left;
+}
+.right_frame div{
+    text-align: right;
+    margin-right: clamp(1px, 8vw, 60px);
+}
+.right_frame img, .left_frame img {
+    position: absolute;
+    z-index: 1; /* Ensure image is below the paragraphs */
+    width: 100%; /* Ensure the image takes up the full width of the frame */
+    height: 100%; 
+}
+.center_image {
+    position: absolute;
+    z-index: 0; /* Ensure the center image is below the banner and name */
+    width: 40%; /* Adjust the width as needed */
+    height: 85%;
+    max-height: 500px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: clamp(1px, 3vw, 20px);;
+    background-image: url(Images/dnd_logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.5s ease;
+}
+.left_frame div p, .right_frame div p{
+    display: inline;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    font-size: clamp(1px, 2vw, 18px);
+    font-weight:lighter;
+}
+
+/*Stats box display*/
+.stats{
+    display: flex;
+    align-items: center;
+    gap: 0; /* No gap between flex items */
+    justify-content: space-between; /* Optional: Adjust alignment as needed */
+    width: 100%;
+}
+.stats .stat-container label{
+    font-size: clamp(1px, 1.5vw, 18px);
+    padding-top: clamp(1px, 3vw, 30px);
+}
+.stats .stat-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.stats .stat-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw; 
+    max-width: 200px;
+    height: 20vw;
+    max-height: 200px;
+
+    margin-right: -2vw; /* Adjust as necessary */
+    margin-left: -2vw;
+    padding: 0;
+    box-sizing: border-box;
+}
+.stat_mod{
+    text-align: center; 
+    font-size: clamp(1px, 2vw, 20px);
+}
+
+
+.details{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+}
+
+/*Skills and saving throws*/
+.skills_save{
+    width: 28vw;  
+    max-width: 230px;  
+    margin-top: 0;
+    margin-bottom: auto;
+}
+/*Skills*/
+.skills{
+    width: 100%;
+    background-color: white;
+    padding: clamp(1px, 1vw, 10px);;
+    padding-right: 0;
+    margin-bottom: clamp(1px, 1vw, 10px);;
+    border-radius:2vw;
+
+}
+.skills_header{
+    font-size: clamp(1px, 2.5vw, 25px);
+    font-weight: bold;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+}
+.skills label{
+    margin-left: clamp(1px, 1.5vw, 5px);
+    margin-right: 0;
+    font-size: clamp(1px, 2vw, 18px);
+}
+.skills input{
+    background: none;
+    border: none;
+    font-size: clamp(1px, 2vw, 17px);
+    width: 4vw;
+    max-width: 25px;
+    margin-right: 0;
+    padding-right: 0;
+}
+/*Save throws*/
+.st_header{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: clamp(1px, 2.5vw, 25px);
+    text-decoration: underline;
+    margin-top:clamp(1px, 1.5vw, 15px);;
+}
+.save_throws{
+    width: 110%;
+    margin-bottom: clamp(1px, 2vw, 100px);
+    margin-left: -1vw;
+}
+.st{
+    display: flex;
+    align-items: center;
+    gap: 0; /* No gap between flex items */
+    justify-content: space-between; /* Optional: Adjust alignment as needed */
+    width: 100%;
+    margin-top: clamp(1px, 1vw, 15px);
+}
+.st .stat-container label{
+    font-size: clamp(1px, 1.5vw, 14px);
+    padding-top: clamp(1px, 1vw, 10px);;
+}
+.st .stat-container input{
+    font-size: clamp(1px, 2.5vw, 20px);
+    padding-top: 0vw;
+}
+.st .stat-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33vw; 
+    max-width: 85px;
+    height: 14vw; 
+    max-height: 110px;
+    margin-bottom: clamp(-2.5vw, -3.5vw, -4vw);;
+
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1vw;
+    box-sizing: border-box;
+
+}
+.st .stat-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.health{
+    width: 30vw;
+    max-width: 250px;
+    margin-top: 0;
+    margin-bottom: auto;
+}
+/*HP*/
+.ch_hp {
+    position: relative; /* Position relative for absolute positioning of sum-number */
+    text-align: center; /* Center align content */
+    width: 30vw; /* Match image width */
+    max-width: 250px;
+    height: 30vw; /* Match image height */
+    max-height: 250px;
+}
+.ch_hp img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.ch_hp .center-content{
+    width: 10vw;
+    position: absolute; 
+    top: clamp(1px, 62%, 200px); 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: clamp(1px, 2vw, 20px);
+    font-weight: bold; 
+    text-align: center;
+    margin-bottom: auto;
+}
+.ch_hp label{
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    background: none;
+    z-index: 2;
+    font-size: clamp(1px, 2vw, 18px);
+    margin: 0;
+    padding: 0;
+}
+.ch_hp input{
+    width:8.5vw;
+    font-weight: bold;
+    font-size: clamp(1px, 3.2vw, 25px);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    display: block;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    background: none;
+}
+
+.ac_movement{
+    width: 100%;
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -7vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+}
+/*AC*/
+.ch_ac{
+    position: relative; /* Position relative for absolute positioning of sum-number */
+    text-align: center; /* Center align content */
+    margin-top: clamp(1px, 6vw, 100px); /* Adjust spacing */
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    margin-bottom: clamp(1px, 5vw, 50px);
+    width: 40%; /* Match image width */
+    max-width: 100px;
+    height: auto; /* Match image height */
+}
+.ch_ac img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.ch_ac .center-content{
+    position: absolute; 
+    top: 65%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: clamp(1px, 2vw, 20px); 
+    font-weight: bold; 
+    text-align: center;
+    margin-bottom: auto;
+}
+.ch_ac label{
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    background: none;
+    z-index: 2;
+    font-size: clamp(1px, 2vw, 18px);
+}
+.ch_ac input{
+    width:8.5vw;
+    font-weight: bold;
+    font-size: clamp(1px, 3.2vw, 25px);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background: none;
+}
+/*speed*/
+.ch_speed{
+    position: relative; /* Position relative for absolute positioning of sum-number */
+    text-align: center; /* Center align content */
+    margin-top: clamp(1px, 6vw, 100px); /* Adjust spacing */
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    margin-bottom: clamp(1px, 2vw, 50px);
+    width: 50%; /* Match image width */
+    max-width: 150px;
+    height: auto; /* Match image height */
+}
+.ch_speed img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.ch_speed .center-content{
+    position: absolute; 
+    top: 55%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-weight: bold; 
+    text-align: center;
+    margin-bottom: auto;
+}
+.ch_speed label{
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    background: none;
+    z-index: 2;
+    font-size: clamp(1px, 1.8vw, 15px);
+}
+.ch_speed input{
+    width:8.5vw;
+    max-width: 50px;
+    font-weight: bold;
+    font-size: clamp(1px, 2.2vw, 25px);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background: none;
+}
+.movement{
+    margin-top: -25%;
+    margin-left: -15%;
+}
+.initiative{
+    margin-top: 18%;
+    margin-left: 18%;
+}
+
+/*PP + spell save DC*/
+.passive_perception , .spell_save_dc{
+    position: relative; 
+    text-align: right; 
+    width: 50vw; 
+    height: 10vw;
+    display: inline;
+}
+.passive_perception div , .spell_save_dc div{
+    font-size: clamp(1px, 2vw, 18px);
+}
+
+
+.passive_perception input , .spell_save_dc input{
+    width:3vw;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    border:none;
+    display: block;
+    background: none;
+    display: inline;
+    text-align: center;
+    font-size: clamp(1px, 2vw, 18px);
+}
+.passive_perception img , .spell_save_dc img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+.features{
+  width: 17vw;
+  max-width: 180px;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+.languages , .feats , .passive{
+    margin-top: clamp(1px, 1vw, 10px);
+    padding-left: clamp(1px, 1vw, 10px);
+    padding-bottom: clamp(1px, 1vw, 10px);
+    border-radius: 1vw;
+    min-height: 10vw;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.596);  
+}
+.languages hr , .feats hr , .passive hr{
+    margin: 0vw;
+}
+.details p{
+    font-size: clamp(1px, 2vw, 20px);
+    margin-left: clamp(1px, 2vw, 20px);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+
+/*Submit button*/
+input[type="submit"] {
+    background-color: #1a1a1aa9;
+    color: white;
+    width: 50%;
+    padding: 1vw;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+    font-size: clamp(1px, 2.5vw, 25px);
+    margin-left: 25%;
+    margin-right: 25%;
+}
+input[type="submit"]:hover {
+    background-color: #000000a9;
+}
+
+
+/*footer*/
+footer {
+    overflow: hidden;
+    background-color: var(--containers);
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 4;
+    font-size: clamp(1px, 1.5vw, 13px);
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+    box-shadow: 0 0 1vw 1vw var(--containers);
+    margin-top: 2vw;
+}
+.footer-content {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-content p {
+    margin: 0;
+    max-width: 30vw;
+    min-width: 30vw;
+}
+.footer-content a {
+    color: var(--detail2);
+    text-decoration: none;
+}
