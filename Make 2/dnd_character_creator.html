@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Character Creator</title>
+    <link rel="stylesheet" href="dnd-look.css">
+
+</head>
+<body>
+<!--  What to do:
+    - Add proficiency bonus to skills (added to saving throws through class)
+    - Add Feats choises 
+    - Add passives (immunites, vision, )
+-->
+
+<img id="filterImage" src="Images/Sun.png" alt="Dark/Light mode">
+<header class="container">D&D Character Creator</header>
+<div class="container"> 
+        
+    <!--<form id="characterForm">
+            <label for="dndFormat">D&D Format:</label>
+            <select id="dndFormat" name="dndFormat" required onchange="toggleFields()">
+                <option value="">Select D&D Format</option>
+                <option value="5th Edition">5th Edition</option>
+                <option value="Fallout">Fallout</option>
+            </select>   -->   
+
+    <div class="horisontal_float">
+        <div class="ch_lvl">
+                <img src="Images/dnd_lvl_block.png" alt="Level Block">
+            <div class="center-content">
+                <label for="characterLvl" class="lvl-label">Lvl:</label>
+                <input type="number" min="1" value="1" id="characterLvl" name="characterLvl" class="lvl-input" required>
+            </div>
+        </div>
+
+        <div class="ch_name">
+            <label for="characterName" class="name-label">Character Name:</label>
+            <input type="text" id="characterName" name="characterName" class="name-input" required onchange="Copy_info();">
+        </div>
+    </div>
+
+<hr>
+
+    <div class="horisontal_float">
+        <div class="choices">
+            <label for="characterAlignment" id="alignmentLabel" >Character Alignment:</label>
+            <select id="characterAlignment" name="characterAlignment" onchange="call_all();" required >
+                <option value="">Select Alignment</option>
+                <option value="Lawful Good">Lawful Good</option>
+                <option value="Neutral Good">Neutral Good</option>
+                <option value="Chaotic Good">Chaotic Good</option>
+                <option value="Lawful Neutral">Lawful Neutral</option>
+                <option value="True Neutral">True Neutral</option>
+                <option value="Chaotic Neutral">Chaotic Neutral</option>
+                <option value="Lawful Evil">Lawful Evil</option>
+                <option value="Neutral Evil">Neutral Evil</option>
+                <option value="Chaotic Evil">Chaotic Evil</option>
+            </select>
+            <label for="characterRace" id="raceLabel" >Character Race:</label>
+            <select id="characterRace" name="characterRace" onchange="call_all();" required >
+                <option value="">Select Race</option>
+                <option value="Dragonborn">Dragonborn</option>
+                <option value="Dwarf">Dwarf</option>
+                <option value="Elf">Elf</option>
+                <option value="Gnome">Gnome</option>
+                <option value="Half-Elf">Half-Elf</option>
+                <option value="Half-Orc">Half-Orc</option>
+                <option value="Halfling">Halfling</option>
+                <option value="Human">Human</option>
+                <option value="Tiefling">Tiefling</option>
+            </select>
+
+            <label for="characterClass" id="classLabel">Character Class:</label>
+            <select id="characterClass" name="characterClass" required onchange="call_all()">
+                <option value="">Select Class</option>
+                <option value="Artificer">Artificer</option>
+                <option value="Barbarian">Barbarian</option>
+                <option value="Bard">Bard</option>
+                <option value="Blood Hunter">Blood Hunter</option>
+                <option value="Cleric">Cleric</option>
+                <option value="Druid">Druid</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Monk">Monk</option>
+                <option value="Paladin">Paladin</option>
+                <option value="Ranger">Ranger</option>
+                <option value="Rogue">Rogue</option>
+                <option value="Sorcerer">Sorcerer</option>
+                <option value="Warlock">Warlock</option>
+                <option value="Wizard">Wizard</option>
+            </select>
+
+            <label for="characterBackground" id="backgroundLabel">Character Background:</label>
+            <select id="characterBackground" name="characterBackground" required onchange="call_all();">
+                    <option value="">Select Background</option>
+                    <option value="Custom Background">Custom Background</option>
+                    <option value="Acolyte">Acolyte</option>
+                    <option value="Anthropologist">Anthropologist</option>
+                    <option value="Archaeologist">Archaeologist</option>
+                    <option value="Athlete">Athlete</option>
+                    <option value="Azorius Functionary">Azorius Functionary</option>
+                    <option value="Black Fist Double Agent">Black Fist Double Agent</option>
+                    <option value="Boros Legionnaire">Boros Legionnaire</option>
+                    <option value="Caravan Specialist">Caravan Specialist</option>
+                    <option value="Celebrity Adventurer's Scion">Celebrity Adventurer's Scion</option>
+                    <option value="Charlatan">Charlatan</option>
+                    <option value="City Watch">City Watch</option>
+                    <option value="Clan Crafter">Clan Crafter</option>
+                    <option value="Cloistered Scholar">Cloistered Scholar</option>
+                    <option value="Cormanthor Refugee">Cormanthor Refugee</option>
+                    <option value="Courtier">Courtier</option>
+                    <option value="Criminal">Criminal</option>
+                    <option value="Dimir Operative">Dimir Operative</option>
+                    <option value="Dragon Casualty">Dragon Casualty</option>
+                    <option value="Earthspur Miner">Earthspur Miner</option>
+                    <option value="Entertainer">Entertainer</option>
+                    <option value="Faceless">Faceless</option>
+                    <option value="Faction Agent">Faction Agent</option>
+                    <option value="Failed Merchant">Failed Merchant</option>
+                    <option value="Far Traveler">Far Traveler</option>
+                    <option value="Feylost">Feylost</option>
+                    <option value="Fisher">Fisher</option>
+                    <option value="Folk Hero">Folk Hero</option>
+                    <option value="Gambler">Gambler</option>
+                    <option value="Gate Urchin">Gate Urchin</option>
+                    <option value="Gate Warden">Gate Warden</option>
+                    <option value="Giant Foundling">Giant Foundling</option>
+                    <option value="Golgari Agent">Golgari Agent</option>
+                    <option value="Grinner">Grinner</option>
+                    <option value="Gruul Anarch">Gruul Anarch</option>
+                    <option value="Guild Artisan">Guild Artisan</option>
+                    <option value="Harborfolk">Harborfolk</option>
+                    <option value="Haunted One">Haunted One</option>
+                    <option value="Hermit">Hermit</option>
+                    <option value="Hillsfar Merchant">Hillsfar Merchant</option>
+                    <option value="Hillsfar Smuggler">Hillsfar Smuggler</option>
+                    <option value="House Agent">House Agent</option>
+                    <option value="Inheritor">Inheritor</option>
+                    <option value="Initiate">Initiate</option>
+                    <option value="Inquisitor">Inquisitor</option>
+                    <option value="Investigator">Investigator</option>
+                    <option value="Iron Route Bandit">Iron Route Bandit</option>
+                    <option value="Izzet Engineer">Izzet Engineer</option>
+                    <option value="Knight of the Order">Knight of the Order</option>
+                    <option value="Knight of Solamnia">Knight of Solamnia</option>
+                    <option value="Lorehold Student">Lorehold Student</option>
+                    <option value="Mage of High Sorcery">Mage of High Sorcery</option>
+                    <option value="Marine">Marine</option>
+                    <option value="Mercenary Veteran">Mercenary Veteran</option>
+                    <option value="Mulmaster Aristocrat">Mulmaster Aristocrat</option>
+                    <option value="Noble">Noble</option>
+                    <option value="Orzhov Representative">Orzhov Representative</option>
+                    <option value="Outlander">Outlander</option>
+                    <option value="Phlan Insurgent">Phlan Insurgent</option>
+                    <option value="Phlan Refugee">Phlan Refugee</option>
+                    <option value="Plaintiff">Plaintiff</option>
+                    <option value="Planar Philosopher">Planar Philosopher</option>
+                    <option value="Prismari Student">Prismari Student</option>
+                    <option value="Quandrix Student">Quandrix Student</option>
+                    <option value="Rakdos Cultist">Rakdos Cultist</option>
+                    <option value="Rival Intern">Rival Intern</option>
+                    <option value="Rune Carver">Rune Carver</option>
+                    <option value="Sage">Sage</option>
+                    <option value="Sailor">Sailor</option>
+                    <option value="Secret Identity">Secret Identity</option>
+                    <option value="Selesnya Initiate">Selesnya Initiate</option>
+                    <option value="Shade Fanatic">Shade Fanatic</option>
+                    <option value="Shipwright">Shipwright</option>
+                    <option value="Silverquill Student">Silverquill Student</option>
+                    <option value="Simic Scientist">Simic Scientist</option>
+                    <option value="Smuggler">Smuggler</option>
+                    <option value="Soldier">Soldier</option>
+                    <option value="Stojanow Prisoner">Stojanow Prisoner</option>
+                    <option value="Ticklebelly Nomad">Ticklebelly Nomad</option>
+                    <option value="Trade Sheriff">Trade Sheriff</option>
+                    <option value="Urban Bounty Hunter">Urban Bounty Hunter</option>
+                    <option value="Urchin">Urchin</option>
+                    <option value="Uthgardt Tribe Member">Uthgardt Tribe Member</option>
+                    <option value="Vizier">Vizier</option>
+                    <option value="Volstrucker Agent">Volstrucker Agent</option>
+                    <option value="Waterdhavian Noble">Waterdhavian Noble</option>
+                    <option value="Witchlight Hand">Witchlight Hand</option>
+                    <option value="Witherbloom Student">Witherbloom Student</option>
+                    <!--   <option value=""> </option>   -->
+                </select>
+
+            <label for="characterArmor" id="backgroundArmor">Character Armor:</label>
+            <select id="characterArmor" name="characterArmor" required onchange="call_all();">
+                <option value="">Select Armor</option>
+                <option value="Padded Armor" data-condition="light">Padded Armor</option>
+                <option value="Studded Leather" data-condition="light">Studded Leather</option>
+                <option value="Hide" data-condition="medium">Hide</option>
+                <option value="Scale Mail" data-condition="medium">Scale Mail</option>
+                <option value="Breastplate" data-condition="medium">Breastplate</option>
+                <option value="Half Plate" data-condition="medium">Half Plate</option>
+                <option value="Ring Mail" data-condition="heavy">Ring Mail</option>
+                <option value="Chain Mail" data-condition="heavy" data-strength="13">Chain Mail</option>
+                <option value="Splint" data-condition="heavy" data-strength="15">Splint</option>
+            </select>
+            
+
+        </div>
+        <div id="five_e-stat" class="choices_stats">
+    <div class="stats_inputs">
+            <div class="stat-container"> 
+                <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+            <div class="center-content">
+                <label for="strength_five_e" id="strength_five_eLabel" >Strength:</label>
+                <input type="number" min="1" max="50" value="10" id="strength_five_e" name="strength_five_e" onchange="call_all();" class="statnr">
+            </div></div>
+
+            <div class="stat-container">
+                <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+            <div class="center-content">
+                <label for="dexterity_five_e" id="dexterity_five_eLabel" >Dexterity:</label>
+                <input type="number" min="1" max="50" value="10" id="dexterity_five_e" name="dexterity_five_e"onchange="call_all();" class="statnr">
+            </div></div>
+    </div><div class="stats_inputs">
+            <div class="stat-container">
+                <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+            <div class="center-content">
+                <label for="constitution_five_e" id="constitution_five_eLabel" >Constitution:</label>
+                <input type="number" min="1" max="50" value="10" id="constitution_five_e" name="constitution_five_e"onchange="call_all();" class="statnr">
+            </div></div>
+
+        <div class="stat-container">
+            <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+        <div class="center-content">
+            <label for="intelligence_five_e" id="intelligence_five_eLabel" >Intelligence:</label>
+            <input type="number" min="1" max="50" value="10" id="intelligence_five_e" name="intelligence_five_e"onchange="call_all();" class="statnr">
+        </div></div>
+    </div><div class="stats_inputs">
+        <div class="stat-container">
+            <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+        <div class="center-content">
+            <label for="wisdom_five_e" id="wisdom_five_eLabel" >Wisdom:</label>
+            <input type="number" min="1" max="50" value="10" id="wisdom_five_e" name="wisdom_five_e"onchange="call_all();" class="statnr">
+        </div></div>
+
+        <div class="stat-container">
+            <img src="Images/dnd_input_stat_frame.png" alt="Stat Block">
+        <div class="center-content">
+            <label for="charisma_five_e" id="charisma_five_eLabel" >Charisma:</label>
+            <input type="number" min="1" max="50" value="10" id="charisma_five_e" name="charisma_five_e"onchange="call_all();" class="statnr">
+        </div></div>
+
+        </div></div> 
+
+    </div>
+<div class="update"><button onclick="call_all();">Update stats</button></div>
+
+<!-- Roll (4d6 - lowest) x 6 -->
+<button id="rollButton">Roll Dice</button>
+<div id="five_e-dice_roll" class="stats">
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+    <div class="dice-container">
+        <span class="sum-number">0</span>
+        <img src="Images/dice.png" alt="Dice Image">
+    </div>
+</div>
+
+<hr>
+
+<input type="submit" value="Create Character">
+</div>
+</form>
+
+
+<footer>
+    <div class="footer-content">
+        <p></p>
+        <p>&#169; Norse_Circe 2024.</p>
+        <p></p>
+    </div>    
+</footer>
+
+
+<!--<script src="dnd-background.js"></script> -->    
+<script src="Stat_Calcluator.js"></script>
+<script src="Race_Changes.js"></script>
+<script src="Roll_dice.js"></script>
+
+</body>
+</html>
